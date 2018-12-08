@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 961 961">
+  <title>Asset 4</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <rect width="961" height="961" style="fill:#231f20"/>
+      <g id="svg_2" data-name="svg 2">
+        <polygon id="polygon7" points="580.6 352.5 720.5 212.2 580.6 212.2 580.6 352.5" style="fill:#fff"/>
+        <polygon id="polygon11" points="860.8 492.5 720.5 632.4 860.8 632.4 860.8 492.5" style="fill:#fff"/>
+        <polygon id="polygon5"
+                 points="100.2 605.8 380.4 605.8 380.4 746.2 520.2 746.2 520.2 492.5 240.5 492.5 520.2 212.2 380.4 212.2 100.2 492.5 100.2 605.8"
+                 style="fill:#fff"/>
+        <polygon id="polygon9"
+                 points="720.5 352.5 580.6 492.5 580.6 632.4 720.5 632.4 720.5 492.5 860.8 352.5 860.8 212.2 720.5 212.2 720.5 352.5"
+                 style="fill:#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

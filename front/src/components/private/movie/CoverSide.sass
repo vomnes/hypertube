@@ -1,0 +1,185 @@
+// =================== Cover/Data side =================== //
+
+.movie-informations
+  position: relative
+  width: 350px
+
+.movie-cover
+  height: 288px
+  width: 237px
+  border-radius: 25px
+  background-color: #D8D8D8
+    box-shadow: 0 0 10px 0 rgba(52, 36, 84, 0.1)
+    position: relative
+
+.adapt-picture
+  width: 100%
+  height: 100%
+  object-fit: cover
+  box-shadow: 0 0 10px 0 rgba(52, 36, 84, 0.1)
+  border-radius: 10px
+
+.movie-data
+  margin-top: 19px
+  position: relative
+  margin-left: 10px
+  width: 300px
+
+.movie-title
+  font-family: 'Source Sans Pro', sans-serif
+  font-size: 1em
+  color: #8F848F
+  font-weight: bold
+  line-height: 20px
+
+.movie-synopsis
+  font-family: 'Source Sans Pro', sans-serif
+  color: #8F848F
+  text-align: justify
+  font-weight: 300
+  line-height: 18px
+  font-size: 14px
+  margin-top: 5px
+  display: block
+
+.movie-synopsis-responsive
+  display: none
+
+.movie-list-details
+  font-family: 'Source Sans Pro', sans-serif
+  list-style-type: none
+  font-size: 13px
+  line-height: 17px
+  color: #8F848F
+  font-weight: 300
+  position: relative
+  margin-top: 9px
+
+.button-style-purple
+  appearance: none
+  border: none
+  background: linear-gradient(90deg, #9461F7 0%, #7C4CF3 100%)
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15)
+  cursor: pointer
+  outline: none
+
+  &:hover
+    opacity: 0.9
+
+.play-trailer
+  position: relative
+  @extend .button-style-purple
+  padding: 5px 15px
+  border-radius: 5px
+  font-family: "Source Sans Pro", serif
+  color: white
+  font-size: 10px
+  font-weight: 600
+  line-height: 13px
+  letter-spacing: 0.5px
+  margin-top: 6px
+
+.status-movie
+  position: relative
+  @extend .button-style-purple
+  height: 75px
+  width: 75px
+  border-radius: 50%
+  top: -185px
+  left: 82px
+
+.play-triangle
+  width: 0
+  height: 0
+  border-style: solid
+  border-width: 17.5px 0 17.5px 26.25px
+  border-color: transparent transparent transparent #ffffff
+  margin-left: 28px
+  position: relative
+
+.dots
+  font-size: 75px
+  color: #F8F9FD
+  position: absolute
+  top: -29.5px
+  left: 10px
+
+.download
+  width: 30px
+
+.no-opacity
+  &:hover
+    opacity: 1
+
+@media screen and (max-width: 640px)
+  .movie-cover
+    height: 150px
+    width: 130px
+    border-radius: 10px
+
+  .status-movie
+    height: 50px
+    width: 50px
+    top: -107.5px
+    left: 42px
+
+  .play-triangle
+    border-width: 10px 0 10px 20px
+    margin-left: 19px
+
+  .movie-informations
+    width: 100%
+
+  .movie-synopsis
+    display: none
+
+  .movie-synopsis-responsive
+    position: relative
+    font-family: 'Source Sans Pro', sans-serif
+    color: #8F848F
+    text-align: justify
+    font-weight: 300
+    font-size: 12px
+    line-height: 15px
+    margin-top: 5px
+    display: block
+
+  .movie-title
+    position: absolute
+    top: -160px
+    left: 135px
+    font-size: 12px
+    line-height: 15px
+
+  .movie-list-details
+    position: absolute
+    top: -130px
+    left: 135px
+
+  .movie-data
+    width: 99%
+    margin-left: 0
+    margin-top: 10px
+
+  .play-trailer
+    position: absolute
+    top: -35px
+    left: 135px
+
+  .see-more
+    color: #8F848F
+    font-weight: 600
+    cursor: pointer
+    transition: 0.5s
+
+    &:hover
+      transition: 0.5s
+      opacity: 0.8
+
+  .dots
+    font-size: 50px
+    top: -20px
+    left: 6px
+
+  .download
+    width: 20px

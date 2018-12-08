@@ -1,0 +1,73 @@
+version: '3'
+
+services:
+    apache2:
+        image: git.harknet.ml:5005/becrespi/hypertube/apache2:tag
+        container_name: "apache2-hypertube"
+        build:
+            context: ./webServer
+            args:
+            - FRONT_DOMAIN_NAME=${FRONT_DOMAIN_NAME}
+        tty: true
+        ports:
+            - "4001:80"
+        volumes:
+            - "./public/movies/:/var/www/html/movies"
+            - "./public/pictures/:/var/www/html/pictures"
+        environment:
+            - API_DOMAIN_NAME=http://localhost:4001
+            - FRONT_DOMAIN_NAME=${FRONT_DOMAIN_NAME}
+
+    mongodb:
+        image: mongo:latest
+        container_name: "mongodb-hypertube"
+        environment:
+          - MONGO_DATA_DIR=/data/db
+          - MONGO_LOG_DIR=/dev/null
+        volumes:
+          - ./mongodbData:/data/db:Z
+        ports:
+            - 27017:27017
+        command: mongod --smallfiles --logpath=/dev/null
+
+    torrent-api:
+        image: git.harknet.ml:5005/becrespi/hypertube/torrent-api:tag
+        container_name: "torrent-api-hypertube"
+        build:
+            context: ./torrentApiNode
+        tty: false
+        ports:
+            - "4002:4002"
+        volumes:
+            - "./public/movies:/torrent/public/movies"
+        environment:
+            - MONGO_DB_NAME=hypertube
+            - MONGO_DB_HOST=mongodb-hypertube
+            - jwtSecret=xxxx
+
+    main-api:
+        image: git.harknet.ml:5005/becrespi/hypertube/main-api:tag
+        container_name: "main-api-hypertube"
+        build:
+            context: ./apiGo
+        tty: false
+        ports:
+            - "4003:4003"
+        volumes:
+            - "./public/pictures/:/app/storage/pictures/"
+        environment:
+            - MONGO_DB_NAME=hypertube
+            - MONGO_DB_HOST=mongodb-hypertube
+            - API_DOMAIN_NAME=http://localhost:4003
+            - FRONT_DOMAIN_NAME=${FRONT_DOMAIN_NAME}
+            - jwtSecret=xxxx
+            - GPLUS_SECRET=xxxx
+            - GPLUS_KEY=xxxx
+            - API42_KEY=xxxx
+            - API42_SECRET=xxxx
+            - MJ_APIKEY_PUBLIC=xxxx
+            - MJ_APIKEY_PRIVATE=xxxx
+            - SESSION_SECRET=xxxx
+            - TMDB_APIKEY=xxxx
+            - FACEBOOK_KEY=xxxx
+            - FACEBOOK_SECRET=xxxx

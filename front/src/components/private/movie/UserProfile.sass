@@ -1,0 +1,45 @@
+.user-profil-bg
+  background: rgba(black, 0.5)
+  width: 100%
+  height: 100vh
+  position: fixed
+  z-index: 99999
+  top: 0
+  left: 0
+  display: flex
+  justify-content: center
+  align-items: center
+
+.user-profil-modal
+  width: 500px
+  background: #fff
+  border-radius: 5px
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding: 20px
+
+.user-profil-modal-img
+  width: 150px
+  border-radius: 50%
+  margin-top: 20px
+
+.user-profil-modal-fullname
+  font-family: 'Source sans pro', serif
+  font-size: 1em
+  font-weight: 600
+  color: #384064
+
+.user-profil-modal-lgn
+  width: 25px
+  height: 25px
+  margin-left: 10px
+
+.user-profil-modal-text
+  display: flex
+  align-items: center
+  margin: 10px 0px
+
+@media screen and (max-width: 500px)
+  .user-profil-modal
+    width: 100%

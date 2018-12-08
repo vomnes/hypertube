@@ -1,0 +1,138 @@
+@import "Standard"
+
+.search-area
+  position: fixed
+  top: 10px
+  width: 50%
+  left: 50%
+  transform: translate(-50%, 0)
+  z-index: 100000
+
+// === Transition === //
+
+.fade-enter,
+.fade-leave-to
+  opacity: 0
+  transform: translateY(-100%)
+
+.fade-enter-to,
+.fade-leave
+  opacity: 1
+  transform: translateY(0%)
+
+.fade-enter-active,
+.fade-leave-active
+  transition: opacity, transform 400ms ease-out
+
+// ================= //
+
+.filters
+  z-index: 50
+  transition: .5s
+
+.text-style
+  @extend .font-style
+  font-style: italic
+  font-size: 16px
+  font-weight: 300
+
+$paddingLeftSearch: 36px
+$paddingRightSearch: 50px
+
+.search-field
+  position: relative
+  width: calc(100% - #{$paddingLeftSearch} - #{$paddingRightSearch})
+  padding-left: $paddingLeftSearch
+  padding-right: $paddingRightSearch
+  height: 40px
+  border: none
+  outline: none
+  @extend .box-layout
+  @extend .text-style
+
+.search-empty
+  font-size: 1.5em
+  margin-top: 2em
+  @extend .text-style
+
+  &::placeholder
+    @extend .text-style
+
+  &:focus
+    @extend .text-style
+
+.settings-icon
+  position: absolute
+  right: 16px
+  top: 10px
+  cursor: pointer
+  transition: 0.5s
+
+  &:hover
+    opacity: 0.8
+    transition: 0.5s
+
+.filter-area
+  position: relative
+  display: flex
+
+.rating-filter
+  margin-right: 5.5px
+
+.year-filter
+  margin-left: 5.5px
+
+.types
+  position: relative
+  width: 100%
+  height: 30px
+  @extend .box-layout
+  @extend .font-style
+
+  & p
+    position: relative
+    width: 33.33%
+    text-align: center
+    font-size: 12px
+    line-height: 15px
+    padding-top: 8px
+    cursor: pointer
+
+.middle-type
+  border-width: 0 1px 0 1px
+  border-style: solid
+  border-color: rgba(151, 151, 151, 0.1)
+
+
+@media screen and (max-width: 640px)
+  .search-area
+    width: 85%
+    margin-top: -5px
+    top: 55px
+    z-index: 100
+
+  $paddingLeftSearch: 15px
+  $paddingRightSearch: 40px
+  $fontSizeSearch: 10px
+
+  .search-field
+    width: calc(100% - #{$paddingLeftSearch} - #{$paddingRightSearch})
+    padding-left: $paddingLeftSearch
+    padding-right: $paddingRightSearch
+
+  .contentRouter
+    margin-top: 6em
+
+  .rating-filter
+    margin-right: 3px
+
+  .year-filter
+    margin-left: 3px
+
+  .types
+    height: 25px
+
+    & p
+      font-size: 8px
+      line-height: 8px
+      padding-top: 8px

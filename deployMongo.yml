@@ -1,0 +1,63 @@
+# Deploy Mongodb
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mongodb-hypertube
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: mongodb-hypertube
+  template:
+    metadata:
+      labels:
+        app: mongodb-hypertube
+    spec:
+      containers:
+      - args:
+        - mongod
+        - --smallfiles
+        - --logpath=/dev/null
+        env:
+        - name: MONGO_DATA_DIR
+          value: /data/db
+        - name: MONGO_LOG_DIR
+          value: /dev/null
+        image: mongo:latest
+        name: mongodb-hypertube 
+        ports:
+        - containerPort: 27017
+        volumeMounts: 
+        - mountPath: /data/db
+          name: mongodb-hypertube-claim0
+      restartPolicy: Always
+      volumes:
+        - name: mongodb-hypertube-claim0
+          persistentVolumeClaim:
+            claimName: mongodb-hypertube-claim0
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    volumeClaim: mongodb-hypertube-claim0
+  name:  mongodb-hypertube-claim0
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mongodb-hypertube
+spec:
+  selector:
+    app: mongodb-hypertube
+  ports:
+  - port: 27017
+    targetPort: 27017

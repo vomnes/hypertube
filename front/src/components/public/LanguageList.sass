@@ -1,0 +1,35 @@
+// Language
+.lang-area
+  position: absolute
+  right: 27px
+  top: 27px
+  z-index: 2
+  width: 35px
+  cursor: pointer
+
+.lang-data
+  font-family: 'Source Sans Pro', sans-serif
+  color: #FFFFFF
+  margin: 0
+  padding: 0
+  list-style: none
+
+.lang-list
+  position: absolute
+  right: 0
+  top: 9px
+
+.lang-select
+  &:hover
+    color: #BDC3C7
+
+@media screen and (max-width: 640px)
+  .lang-area
+    right: 15px
+    top: 14px
+    font-size: 12px
+    width: 25px
+
+  .lang-list
+    top: 6px
+    width: 8px

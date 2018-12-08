@@ -1,0 +1,224 @@
+.header-info
+  position: absolute
+  right: 0
+  z-index: 100000
+  background-color: #F8F9FD
+  border-bottom-right-radius: 10px
+  border-bottom-left-radius: 10px
+  width: 450px
+  min-height: 205px
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1)
+
+.normal
+  border-color: initial
+
+.error
+  border-color: red !important
+
+.not-allowed
+  cursor: not-allowed
+
+.spacing-top-btn
+  margin-top: 6px
+
+.loadingPopup
+  position: absolute
+  z-index: 100
+  background-color: #F8F9FD
+  border-bottom-right-radius: 10px
+  border-bottom-left-radius: 10px
+  width: 450px
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1)
+
+.header-info-photo
+  width: 120px !important
+  height: 120px !important
+  border-radius: 20px
+  object-fit: cover
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1)
+
+.header-info-subbody
+  word-break: break-all
+  flex-direction: column
+  margin-left: 20px
+  width: 100%
+
+.password-container
+  input
+    margin-top: 3px
+
+.header-info-header
+  display: flex
+  margin-top: 20px
+  margin-left: 20px
+
+  h2
+    display: inline-block
+    color: #8F848F
+    font-size: 1.1em
+    line-height: 1
+    font-family: 'Source Sans Pro', serif
+    font-weight: 600
+
+.header-info-btn
+  display: flex
+  margin-left: 0.5em
+  background-color: #8F848F
+  color: white
+  border-radius: 3px
+  padding: 2px 15px
+  line-height: 1
+  outline: none
+  border: unset
+  bottom: 2px
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1)
+
+  &:active
+    transform: scale(0.9)
+
+.logout
+  position: absolute
+  width: 20px
+  top: 22px
+  right: 20px
+  cursor: pointer
+  transition: .5s
+
+  &:hover
+    opacity: .5
+    transition: .5s
+
+.header-info-body
+  margin: 20px
+  display: flex
+
+  p
+    line-height: 30px
+    color: #8F848F
+    font-family: Helvetica, serif
+
+  img
+    height: 20px
+
+  input
+    width: 100%
+    box-sizing: border-box
+    outline: unset
+    border: unset
+    border-bottom: 2px solid white
+    font-family: Helvetica, serif
+    border-radius: 2px
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1)
+    padding: 5px
+    display: block
+
+    &:focus
+      border-bottom: 2px solid #384064
+      transition: 1s
+
+    &::placeholder
+      color: #D6D9E1
+
+.vertical-center
+  p, img
+    line-height: 18px
+    float: left
+    display: table-cell
+    vertical-align: middle
+
+  img
+    margin-left: 5px
+    height: 18px
+    cursor: pointer
+
+.header-info-footer
+  clear: both
+  border-top: 1px solid rgba(151, 151, 151, 0.2)
+  margin-bottom: 20px
+
+  h2
+    color: #8F848F
+    font-family: 'Source Sans Pro', serif
+    font-weight: 400
+    margin-left: 20px
+
+.select
+  border: 1px solid #8F848F
+  border-radius: 10px
+  outline: none
+
+.language-icon
+  height: 20px
+  vertical-align: middle
+
+.clickable
+  cursor: pointer
+
+.spacing
+  margin-bottom: 3px
+
+.arrow-close
+  display: none
+
+.black-modal
+  position: absolute
+  right: 0
+  width: 100%
+  height: 100%
+
+.header-profile-picture
+  width: 35px
+  height: 35px
+  border-radius: 25px
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05)
+  background-color: white
+  cursor: pointer
+  transition: .5s
+  margin-right: 1.5em
+  outline: 0 !important
+
+*:focus
+  outline: none
+
+
+.adapt-picture-circle
+  width: 100%
+  height: 100%
+  object-fit: cover
+  border-radius: 50%
+
+.arrow-close
+  position: absolute
+  bottom: -13px
+  width: 26px
+  height: 26px
+  background: #F8F9FD
+  left: calc(50% - 13px)
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1)
+  border-radius: 50%
+  display: flex
+  justify-content: center
+  align-items: center
+  cursor: pointer
+
+.arrow-close-img
+  width: 15px
+
+.hidden
+  display: none
+
+.loadingProfile
+  margin-top: -12px
+
+.displayFlex
+  display: flex
+
+
+@media screen and (max-width: 640px)
+  .header-info
+    position: absolute
+    border-radius: 0px
+    width: 100%
+    top: 44px
+    max-width: unset
+    min-width: unset

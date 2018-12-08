@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 236 236">
+  <title>arrow</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <!-- <circle cx="118" cy="118" r="118" style="fill:#fff"/> -->
+      <line x1="42.5" y1="164.5" x2="119.5" y2="72.5"
+            style="fill:none;stroke:#8f848f;stroke-miterlimit:10;stroke-width:5px"/>
+      <line x1="194.4" y1="164.5" x2="116.6" y2="72.5"
+            style="fill:none;stroke:#8f848f;stroke-miterlimit:10;stroke-width:5px"/>
+    </g>
+  </g>
+</svg>

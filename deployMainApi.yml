@@ -1,0 +1,78 @@
+# Torrent node api
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: main-api-hypertube
+spec:
+  replicas: 2
+  strategy:
+     type: RollingUpdate
+     rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: main-api-hypertube
+  template:
+    metadata:
+      labels:
+        app: main-api-hypertube
+    spec:
+      imagePullSecrets:
+      - name: gitlab-registry
+      containers:
+      - image: git.harknet.ml:5005/becrespi/hypertube/main-api:_VERSION_
+        name: main-api-hypertube 
+        ports:
+        - containerPort: 4003
+        env:
+          - name: jwtSecret
+            value: _JWT_SECRET_
+          - name: MONGO_DB_NAME
+            value: _MONGO_DB_NAME_
+          - name: MONGO_DB_HOST
+            value: _MONGO_DB_HOST_
+          - name: API_DOMAIN_NAME
+            value: _API_DOMAIN_NAME_
+          - name: GPLUS_SECRET
+            value: _GPLUS_SECRET_
+          - name: GPLUS_KEY
+            value: _GPLUS_KEY_
+          - name: FACEBOOK_SECRET
+            value: _FACEBOOK_SECRET_
+          - name: FACEBOOK_KEY
+            value: _FACEBOOK_KEY_
+          - name: API42_KEY
+            value: _API42_KEY_
+          - name: API42_SECRET
+            value: _API42_SECRET_
+          - name: MJ_APIKEY_PUBLIC
+            value: _MJ_APIKEY_PUBLIC_
+          - name: MJ_APIKEY_PRIVATE
+            value: _MJ_APIKEY_PRIVATE_
+          - name: SESSION_SECRET
+            value: _SESSION_SECRET_
+          - name: TMDB_APIKEY
+            value: _TMDB_APIKEY_
+          - name: FRONT_DOMAIN_NAME
+            value: _FRONT_DOMAIN_NAME_
+        tty: true
+        volumeMounts: 
+        - mountPath: /app/storage/pictures
+          name: apache-hypertube-claim1
+      restartPolicy: Always
+      volumes:
+        - name: apache-hypertube-claim1
+          persistentVolumeClaim:
+            claimName: apache-hypertube-claim1
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: main-api-hypertube
+spec:
+  selector:
+    app: main-api-hypertube
+  ports:
+  - port: 4003
+    targetPort: 4003 

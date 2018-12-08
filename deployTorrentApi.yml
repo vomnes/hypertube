@@ -1,0 +1,54 @@
+# Torrent node api
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: torrent-api-hypertube
+spec:
+  replicas: 1
+  strategy:
+     type: RollingUpdate
+     rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: torrent-api-hypertube
+  template:
+    metadata:
+      labels:
+        app: torrent-api-hypertube
+    spec:
+      imagePullSecrets:
+      - name: gitlab-registry
+      containers:
+      - image: git.harknet.ml:5005/becrespi/hypertube/torrent-api:_VERSION_
+        name: torrent-api-hypertube 
+        ports:
+        - containerPort: 4002
+        env:
+          - name: jwtSecret
+            value: _JWT_SECRET_
+          - name: MONGO_DB_NAME
+            value: _MONGO_DB_NAME_
+          - name: MONGO_DB_HOST
+            value: _MONGO_DB_HOST_
+        tty: true
+        volumeMounts: 
+        - mountPath: /torrent/public/movies
+          name: apache-hypertube-claim0
+      restartPolicy: Always
+      volumes:
+        - name: apache-hypertube-claim0
+          persistentVolumeClaim:
+            claimName: apache-hypertube-claim0
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: torrent-api-hypertube
+spec:
+  selector:
+    app: torrent-api-hypertube
+  ports:
+  - port: 4002
+    targetPort: 4002

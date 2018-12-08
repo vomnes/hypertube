@@ -1,0 +1,135 @@
+a
+  text-decoration: none
+
+img
+  color: rgba(0, 0, 0, 0)
+
+.category-content
+  position: relative
+  overflow-x: hidden
+
+.box-title
+  font-family: "Source Sans Pro", serif
+  color: #8F848F
+  font-weight: 600
+  line-height: 20px
+  letter-spacing: 0.5px
+  margin-left: 8px
+
+.category-title
+  font-size: 16px
+  font-weight: 600
+  line-height: 20px
+  margin-left: 100px
+
+.gallery-pictures
+  position: relative
+  margin-top: 5px
+  margin-bottom: 5px
+  // Gallery Grid
+  display: flex
+  flex-wrap: wrap
+  flex-direction: row
+  justify-content: center
+
+.picture-frame
+  position: relative
+  border-radius: 10px
+  background-color: #D8D8D8
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02)
+  overflow: hidden
+  margin: 10px
+
+.picture-size
+  width: 237px
+  height: 288px
+
+.adapt-picture
+  width: 100%
+  height: 100%
+  object-fit: cover
+
+.item
+  position: relative
+
+.purple
+  background: linear-gradient(90deg, #9461F7 0%, #7C4CF3 100%)
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15)
+
+$watch-height: 20px
+
+.state
+  margin: 10px
+  cursor: default
+
+  & .icon
+    position: absolute
+    height: $watch-height
+    width: $watch-height
+    border-radius: 50%
+    top: 0
+    right: -7.5px
+    display: flex
+    justify-content: center
+    align-items: center
+    @extend .purple
+
+.watched
+  width: 80px
+  height: $watch-height
+  border-radius: 6.5px
+  font-family: "Source Sans Pro", serif
+  font-size: 10px
+  font-weight: 600
+  line-height: 13px
+  color: white
+  text-align: center
+  @extend .purple
+
+  & p
+    position: relative
+    top: 3px
+    bottom: 4px
+
+.loader
+  position: relative
+  left: calc(50% - 30px)
+  margin-top: 17.5px
+  margin-bottom: 20px
+
+@media screen and (max-width: 640px)
+  .category-title
+    font-size: 12px
+    line-height: 15px
+    margin-left: 50px
+
+  .picture-size
+    height: 157px
+    width: 129px
+
+  .picture-frame
+    margin: 5px
+
+  .state
+    top: 7px
+    left: 12px
+
+  $watch-height: 15px
+
+  .state
+    & .icon
+      height: $watch-height
+      width: $watch-height
+
+    & img
+      width: 7px
+
+  .watched
+    height: $watch-height
+    width: 50px
+    font-size: 6px
+    line-height: 8px
+
+    & p
+      top: 4px
+      bottom: 3px

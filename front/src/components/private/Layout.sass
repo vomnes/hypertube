@@ -1,0 +1,110 @@
+// Top
+
+.header
+  position: absolute
+  width: 100%
+  height: 60px
+  display: flex
+  flex-direction: row
+  z-index: 10000
+  align-items: center
+  background-color: #F8F9FD
+
+.headerFilterSpace
+  margin-bottom: 6.75em
+
+.logo
+  width: 30px
+  transition: .5s
+  margin-left: 1.5em
+
+.header-title
+  font-family: 'Source Sans Pro', sans-serif
+  color: #384064
+  line-height: 20px
+  font-size: 16px
+  text-decoration: none !important
+
+#buttonsHeaderContainer
+  display: flex
+  flex-direction: row
+  align-items: center
+  margin-left: auto
+
+.search
+  cursor: pointer
+  transition: .5s
+  width: 25px
+  margin-right: 1.25em
+
+  &:hover
+    transition: .5s
+    opacity: 0.5
+
+a
+  text-decoration: none
+
+.download
+  cursor: pointer
+  transition: .5s
+  width: 25px
+
+  &:hover
+    transition: .5s
+    opacity: 0.5
+
+.header-profile-picture
+  position: absolute
+  top: 8.5px
+  right: 35px
+  width: 35px
+  height: 35px
+  border-radius: 25px
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05)
+  background-color: white
+  cursor: pointer
+  transition: .5s
+
+.adapt-picture-circle
+  width: 100%
+  height: 100%
+  object-fit: cover
+  border-radius: 50%
+
+// Content
+
+.content
+  position: relative
+  width: 95%
+  top: 5px
+  max-width: 1440px
+  height: auto
+  margin-left: auto
+  margin-right: auto
+  display: block
+  padding-left: 5px
+  padding-right: 5px
+  margin-bottom: 15px
+
+@media screen and (max-width: 640px)
+  .header
+    height: 45px
+
+  .headerFilterSpace
+    margin-bottom: 5.25em
+
+  .blackModal
+    position: absolute
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.4)
+    z-index: 1005
+
+  .header-title
+    display: none
+
+  .header-profile-picture
+    width: 25px
+    height: 25px
+    top: 11px
+    right: 14px
