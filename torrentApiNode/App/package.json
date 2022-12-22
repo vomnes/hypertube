@@ -14,7 +14,7 @@
     "bignum": "^0.13.0",
     "bittorrent-dht": "^9.0.0",
     "hapi": "^17.6.0",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "m3u8-parser": "^4.2.0",
     "magnet-uri": "^5.2.4",
     "mongodb": "^3.1.8",
